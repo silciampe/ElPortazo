@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Portazo/Contacto</title>
+    <link rel="icon" type="image/x-icon" href="./img/logoepbyn.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/5388f691ef.js" crossorigin="anonymous"></script>
+<script defer src="ham.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index_en.html">
+                <img class="logo" src="img/logoepbyn.png" width=60px height=60px alt="logo El portazo">
+            </a>
+            <ul class="menu">
+                <li><a href="nosotros_en.html">Us</a></li>
+                <li><a href="producciones_en.html">Productions</a></li>
+                <li><a href="contacto_en.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="contacto.html">
+                <img class="esp" src="img/esp.png" width=30px height=30px alt="eng">
+            </a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="espacio">
+                <div class=titulo2><span>We can do great things together!</span></div>
+                    <div class="formulario">
+                        <h3>Leave us your query</h3>
+                        <form action="https://formspree.io/f/xoqbnznz" method="POST" class="form" id="form"> 
+                            <div>
+                                <label for="nombre"></label>
+                                <input type="text" id="nombre" placeholder="Name and surname" name="nombre" required>
+                            </div>
+                            <div>
+                                <label for="email"></label>
+                                <input type="text" id="email" placeholder="Email" name="email" required>
+                            </div>
+                            <div>
+                                <label for="mensaje"></label>
+                                <textarea rows=5 placeholder="Write your message here" id="mensaje" name="mensaje" required></textarea>
+                            </div>
+                            <div>
+                                <button class="boton" type="submit">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+        </div>    
+    </section>
+
+    <script>
+
+    const formulario = document.getElementById('form')
+    const userName = document.getElementById('nombre')
+    const userEmail = document.getElementById('email')
+    const userMensaje = document.getElementById('mensaje')
+
+    const regUserName = /^[A-Za-zÑñÄáÉéÍíÓóÚú\s]+$/;
+    const regUserEmail = /^[a-z0-9]+(\-[_a-z0-9]+)*@[a-z0-9 ]+(\.[a-z0-9 ]+)*(\.[a-z]{2,15})$/;
+        
+
+    const enviar = () => {
+        
+        if (!regUserName.test(userName.value)) {
+                alert('El Nombre no es válido');
+                userName.focus()
+                return false;
+            }
+           
+        else if (!regUserEmail.test(userEmail.value)) {
+                alert('El email no es válido');
+                userEmail.focus()
+                return false;
+            }
+        return true;                        
+    }           
+   
+        let form = document.getElementById('form');
+
+        form.addEventListener('submit', handlesubmit);
+
+        async function handlesubmit(event) {
+            event.preventDefault();
+            let valido = enviar();
+            if (valido == true) {
+                let form= new FormData (this);
+                let response = await fetch(this.action, {
+                method: this.method, 
+                body: form,
+                headers:{
+                    'Accept': 'application/json'
+                }
+                })
+                if (response.ok) {
+                    this.reset();
+                    alert ('Gracias por contactarnos. A la brevedad nos comunicaremos contigo');
+                }
+            }
+            
+        }
+
+
+    </script>
+    
+    <footer>
+        <div id="iconos"> 
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UCuI9Ur9SE15_4qHkRvKWtxg" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://twitter.com/ElPortazo_?t=oEP5_mvCXyFjELZiOHxaBg&s=08" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="copyright">El Portazo - Copyright. &copy; Todos los Derechos Reservados 2022.</div>
+    </footer>
+
+</body>
+</html>
