@@ -21,7 +21,7 @@
                 <img class="logo" src="img/logoepbyn.png" width=60px height=60px alt="logo El portazo">
             </a>
             <ul class="menu">
-                <li><a href="nosotros_en.html">Us</a></li>
+                <li><a href="nosotros_en.html">About us</a></li>
                 <li><a href="producciones_en.html">Productions</a></li>
                 <li><a href="contacto_en.html">Contact</a></li>
             </ul>
@@ -75,13 +75,13 @@
     const enviar = () => {
         
         if (!regUserName.test(userName.value)) {
-                alert('El Nombre no es válido');
+                alert('The name has some invalid characters');
                 userName.focus()
                 return false;
             }
            
         else if (!regUserEmail.test(userEmail.value)) {
-                alert('El email no es válido');
+                alert('Invalid email address');
                 userEmail.focus()
                 return false;
             }
@@ -106,7 +106,7 @@
                 })
                 if (response.ok) {
                     this.reset();
-                    alert ('Gracias por contactarnos. A la brevedad nos comunicaremos contigo');
+                    alert ('Thanks for your message. We will respond very soon');
                 }
             }
             
@@ -121,7 +121,7 @@
             <a href="https://www.youtube.com/channel/UCuI9Ur9SE15_4qHkRvKWtxg" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://twitter.com/ElPortazo_?t=oEP5_mvCXyFjELZiOHxaBg&s=08" target="_blank"><i class="fa-brands fa-twitter"></i></a>
         </div>
-        <div class="copyright">El Portazo - Copyright. &copy; Todos los Derechos Reservados 2022.</div>
+        <div class="copyright">El Portazo - Copyright. &copy; All Rights Reserved 2022.</div>
     </footer>
 
 </body>
