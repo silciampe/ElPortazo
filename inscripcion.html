@@ -52,12 +52,12 @@
         <div>
             <label for="telefono"></label>
             <p>Teléfono:</p>
-            <input type="tel" id="telefono" placeholder="Ingrese su telefono" name="telefono" required class="fila">
+            <input type="number" id="telefono" placeholder="Ingrese su telefono" name="telefono" required class="fila">
         </div>
         <div>
             <label for="dni"></label>
             <p>DNI:</p>
-            <input type="tel" id="dni" placeholder="Ingrese su DNI" name="dni" required class="fila">
+            <input type="number" id="dni" placeholder="Ingrese su DNI" name="dni" required class="fila">
         </div>
         <div>
             <label for="email"></label>
@@ -71,11 +71,19 @@
         </div>
         <div>
             <p class="center-content">
-                <input type="submit" class="botonEnviar" value="Enviar">
+                             
+                <input type=submit onclick="pregunta()" value="Enviar">
+                <script language="JavaScript">
+                    function pregunta(){
+                        if (confirm('¿Estas seguro de enviar este formulario?')){
+                           document.tuformulario.submit()
+                        }
+                    }
+                    </script>
             </p>
-
-        </div>
-    </form>
+          </div>
+        </form>
+        
 </div>
     <footer>
         <div id="iconos"> 

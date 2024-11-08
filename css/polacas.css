@@ -241,6 +241,10 @@ footer {
   color: #efbd76;
 } 
 
+.videoPolacas{
+  margin-top: 100px;
+}
+
 @media screen and (max-width: 992px) {
   header .logo{
     width: 40px;
